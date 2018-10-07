@@ -1,0 +1,438 @@
+[
+  {
+    scopeList: [
+      ".source.js"
+      ".source.ts"
+    ]
+    snippetList: [
+      {
+        name: "console.log"
+        trigger: "cl"
+        content: "console.log($1)"
+        desc: ""
+      }
+      {
+        name: "console.logJSON"
+        trigger: "clj"
+        content: "console.log(JSON.stringify($1))"
+        desc: ""
+      }
+      {
+        name: "alert($1)"
+        trigger: "al"
+        content: "alert($1)"
+        desc: ""
+      }
+      {
+        name: "const { code, message, data } = xhr.data"
+        trigger: "xhr"
+        content: "const { code, message, data } = xhr.data"
+        desc: ""
+      }
+      {
+        name: "return $1;"
+        trigger: "r"
+        content: "return $1;"
+        desc: ""
+      }
+      {
+        name: "debugger;"
+        trigger: "deb"
+        content: "debugger;"
+        desc: ""
+      }
+      {
+        name: "arguments"
+        trigger: "arg"
+        content: "arguments"
+        desc: ""
+      }
+      {
+        name: "what"
+        trigger: "what"
+        content: '''
+          ,
+          what(ee){
+            console.log('what: ', ee)
+          }
+        '''
+        desc: ""
+      }
+      {
+        name: "for"
+        trigger: "for"
+        content: '''
+          for(let ${1:ii}=0; ${1:ii}<10; ${1:ii}++){
+            ${2}
+          }
+        '''
+        desc: ""
+      }
+      {
+        name: "fn"
+        trigger: "fn"
+        content: '''
+          function ${1}(${2}) {
+            ${3}
+          }
+        '''
+        desc: ""
+      }
+      {
+        name: "sto"
+        trigger: "sto"
+        content: '''
+          setTimeout(()=> {
+          	${1}
+          }, ${2:100})
+        '''
+        desc: ""
+      }
+      {
+        name: "siv"
+        trigger: "siv"
+        content: '''
+          setInterval(()=> {
+          	${1}
+          }, ${2:100})
+        '''
+        desc: ""
+      }
+      {
+        name: "cto"
+        trigger: "cto"
+        content: "clearTimeout(${1})"
+        desc: ""
+      }
+      {
+        name: "civ"
+        trigger: "civ"
+        content: "clearInterval(${1})"
+        desc: ""
+      }
+    ]
+  }
+  {
+    scopeList: [
+      ".text.html"
+    ]
+    snippetList: [
+      {
+        name: ":class=\"[ss${1:1}.$2]\""
+        trigger: "cs"
+        content: ":class=\"[ss${1:1}.$2]\""
+        desc: ""
+      }
+      {
+        name: "ss${1:1}.$2"
+        trigger: "ss"
+        content: "ss${1:1}.$2"
+        desc: ""
+      }
+      {
+        name: ":class=\"[$style.$1]\""
+        trigger: "cm"
+        content: ":class=\"[$style.$1]\""
+        desc: ""
+      }
+      {
+        name: "$style."
+        trigger: "sm"
+        content: "$style."
+        desc: ""
+      }
+      {
+        name: ":class=\"[style${1:2}.$2]\""
+        trigger: "cm2"
+        content: ":class=\"[style${1:2}.$2]\""
+        desc: ""
+      }
+      {
+        name: "style${1:2}.$2"
+        trigger: "sm2"
+        content: "style${1:2}.$2"
+        desc: ""
+      }
+    ]
+  }
+  {
+    scopeList: [
+      ".text.html"
+      ".source.pug"
+    ]
+    snippetList: [
+      {
+        name: "v-for="
+        trigger: "vf"
+        content: "v-for=\"(vv$1, index$1) in $2\" :key=\"index$1\""
+        desc: ""
+      }
+      {
+        name: "v-if="
+        trigger: "vif"
+        content: "v-if=\"$1\""
+        desc: ""
+      }
+    ]
+  }
+  {
+    scopeList: [
+      ".source.pug"
+    ]
+    snippetList: [
+      {
+        name: "template(v-for"
+        trigger: "tvf"
+        content: "template(v-for=\"(vv$1, index$1) in $2\")"
+        desc: ""
+      }
+      {
+        name: "template(v-if"
+        trigger: "tvif"
+        content: "template(v-if=\"$1\")"
+        desc: ""
+      }
+    ]
+  }
+  {
+    scopeList: [
+      ".source.css"
+    ]
+    snippetList: [
+      {
+        name: "display: block;"
+        trigger: "db"
+        content: "display: block;"
+        desc: ""
+      }
+      {
+        name: "display: inline;"
+        trigger: "di"
+        content: "display: inline;"
+        desc: ""
+      }
+      {
+        name: "display: inline-block;"
+        trigger: "dib"
+        content: "display: inline-block;"
+        desc: ""
+      }
+      {
+        name: "display: flex;"
+        trigger: "df"
+        content: "display: flex;"
+        desc: ""
+      }
+      {
+        name: "position: absolute;"
+        trigger: "psa"
+        content: "position: absolute;"
+        desc: ""
+      }
+      {
+        name: "position: fixed;"
+        trigger: "psf"
+        content: "position: fixed;"
+        desc: ""
+      }
+      {
+        name: "position: relative;"
+        trigger: "psr"
+        content: "position: relative;"
+        desc: ""
+      }
+      {
+        name: "top: 0;"
+        trigger: "pt0"
+        content: "top: 0;"
+        desc: ""
+      }
+      {
+        name: "right: 0;"
+        trigger: "pr0"
+        content: "right: 0;"
+        desc: ""
+      }
+      {
+        name: "bottom: 0;"
+        trigger: "pb0"
+        content: "bottom: 0;"
+        desc: ""
+      }
+      {
+        name: "left: 0;"
+        trigger: "pl0"
+        content: "left: 0;"
+        desc: ""
+      }
+      {
+        name: "background: #$1;"
+        trigger: "bg"
+        content: "background: #$1;"
+        desc: ""
+      }
+      {
+        name: "background: none;"
+        trigger: "bgn"
+        content: "background: none;"
+        desc: ""
+      }
+      {
+        name: "float: left;"
+        trigger: "fl"
+        content: "float: left;"
+        desc: ""
+      }
+      {
+        name: "float: right;"
+        trigger: "fr"
+        content: "float: right;"
+        desc: ""
+      }
+      {
+        name: "width: $1px;"
+        trigger: "w"
+        content: "width: $1px;"
+        desc: ""
+      }
+      {
+        name: "height: $1px;"
+        trigger: "h"
+        content: "height: $1px;"
+        desc: ""
+      }
+      {
+        name: "width: 100%;"
+        trigger: "ww"
+        content: "width: 100%;"
+        desc: ""
+      }
+      {
+        name: "height: 100%;"
+        trigger: "hh"
+        content: "height: 100%;"
+        desc: ""
+      }
+      {
+        name: "padding: $1px;"
+        trigger: "pd"
+        content: "padding: $1px;"
+        desc: ""
+      }
+      {
+        name: "margin: $1px;"
+        trigger: "mg"
+        content: "margin: $1px;"
+        desc: ""
+      }
+      {
+        name: "padding: 0;"
+        trigger: "pd0"
+        content: "padding: 0;"
+        desc: ""
+      }
+      {
+        name: "margin: 0;"
+        trigger: "mg0"
+        content: "margin: 0;"
+        desc: ""
+      }
+      {
+        name: "margin: 0 auto;"
+        trigger: "mg0a"
+        content: "margin: 0 auto;"
+        desc: ""
+      }
+      {
+        name: "text-align: right;"
+        trigger: "tar"
+        content: "text-align: right;"
+        desc: ""
+      }
+      {
+        name: "text-align: left;"
+        trigger: "tal"
+        content: "text-align: left;"
+        desc: ""
+      }
+      {
+        name: "text-align: center;"
+        trigger: "tac"
+        content: "text-align: center;"
+        desc: ""
+      }
+      {
+        name: "border: 1px solid #$1;"
+        trigger: "bd"
+        content: "border: 1px solid #$1;"
+        desc: ""
+      }
+      {
+        name: "white-space: nowrap;"
+        trigger: "wsn"
+        content: "white-space: nowrap;"
+        desc: ""
+      }
+      {
+        name: "vertical-align: middle;"
+        trigger: "vam"
+        content: "vertical-align: middle;"
+        desc: ""
+      }
+      {
+        name: "color: #$1;"
+        trigger: "co"
+        content: "color: #$1;"
+        desc: ""
+      }
+      {
+        name: "color: red;"
+        trigger: "cor"
+        content: "color: red;"
+        desc: ""
+      }
+      {
+        name: "color: green;"
+        trigger: "cog"
+        content: "color: green;"
+        desc: ""
+      }
+      {
+        name: "color: purple;"
+        trigger: "cop"
+        content: "color: purple;"
+        desc: ""
+      }
+      {
+        name: "overflow: scroll;"
+        trigger: "os"
+        content: "overflow: scroll;"
+        desc: ""
+      }
+      {
+        name: "overflow: hidden;"
+        trigger: "oh"
+        content: "overflow: hidden;"
+        desc: ""
+      }
+      {
+        name: "overflow: visible;"
+        trigger: "ov"
+        content: "overflow: visible;"
+        desc: ""
+      }
+      {
+        name: "overflow: auto;"
+        trigger: "oa"
+        content: "overflow: auto;"
+        desc: ""
+      }
+      {
+        name: "cursor: pointer;"
+        trigger: "cp"
+        content: "cursor: pointer;"
+        desc: ""
+      }
+    ]
+  }
+]

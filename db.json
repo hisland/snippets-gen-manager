@@ -1,9 +1,0 @@
-[
-  {
-    scope: ['source.js'],
-    name: 'console.log',
-    trigger: 'cl',
-    content: `console.log($1)`,
-    desc: '',
-  },
-]
