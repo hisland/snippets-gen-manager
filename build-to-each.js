@@ -3,7 +3,7 @@ const cson = require('cson')
 const { forEach, map } = require('lodash')
 
 // toAtom()
-// fromAtom()
+fromAtom()
 
 function toAtom() {
   const list1 = cson.load('./db-raw.cson')
@@ -23,8 +23,10 @@ function toAtom() {
   const rs2 = cson.createCSONString(rs1, {
     indent: '  ',
   })
-  // fs.writeFileSync('db-raw-to-atom.cson', rs2)
-  fs.writeFileSync('/Users/hisland/.atom/snippets.cson', rs2)
+  // fs.writeFileSync('./out-db-raw-to-atom.cson', rs2)
+  const out_path = '/Users/hisland/.atom/snippets.cson'
+  fs.writeFileSync(out_path, rs2)
+  console.log('write to: ', out_path)
 }
 
 function fromAtom() {
@@ -56,9 +58,18 @@ function fromAtom() {
   const rs2 = cson.createCSONString(rs1, {
     indent: '  ',
   })
-  fs.writeFileSync('db-from-atom.cson', rs2)
+  const out_path = 'gen-db-from-atom.cson'
+  fs.writeFileSync(out_path, rs2)
+  console.log('write to: ', out_path)
 }
 
-function toVSCode() {}
+function toVSCode() {
+  const cs_code_cfg_path =
+    '/Users/hisland/Library/Application Support/Code/User'
+  const p2 = '/Users/hisland/.vscode/extensions'
+}
 
-function toSublimeText3() {}
+function toSublimeText3() {
+  const cs_code_cfg_path =
+    '/Users/hisland/Library/Application Support/Sublime Text 3/Packages/User'
+}

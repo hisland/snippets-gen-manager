@@ -1,19 +1,6 @@
 [
   {
     scopeList: [
-      ".source.ts"
-    ]
-    snippetList: [
-      {
-        name: "console.log"
-        trigger: "cl"
-        content: "console.log($1)"
-        desc: ""
-      }
-    ]
-  }
-  {
-    scopeList: [
       ".source.js"
     ]
     snippetList: [
@@ -95,7 +82,7 @@
         trigger: "sto"
         content: '''
           setTimeout(()=> {
-          	${1}
+            ${1}
           }, ${2:100})
         '''
         desc: ""
@@ -105,8 +92,140 @@
         trigger: "siv"
         content: '''
           setInterval(()=> {
-          	${1}
+            ${1}
           }, ${2:100})
+        '''
+        desc: ""
+      }
+      {
+        name: "ifd"
+        trigger: "ifd"
+        content: '''
+          if (process.env.NODE_ENV === 'development') {
+            ${1}
+          }
+        '''
+        desc: ""
+      }
+      {
+        name: "cto"
+        trigger: "cto"
+        content: "clearTimeout(${1})"
+        desc: ""
+      }
+      {
+        name: "civ"
+        trigger: "civ"
+        content: "clearInterval(${1})"
+        desc: ""
+      }
+    ]
+  }
+  {
+    scopeList: [
+      ".source.ts"
+    ]
+    snippetList: [
+      {
+        name: "console.log"
+        trigger: "cl"
+        content: "console.log($1)"
+        desc: ""
+      }
+      {
+        name: "console.logJSON"
+        trigger: "clj"
+        content: "console.log(JSON.stringify($1))"
+        desc: ""
+      }
+      {
+        name: "alert($1)"
+        trigger: "al"
+        content: "alert($1)"
+        desc: ""
+      }
+      {
+        name: "const { code, message, data } = xhr.data"
+        trigger: "xhr"
+        content: "const { code, message, data } = xhr.data"
+        desc: ""
+      }
+      {
+        name: "return $1;"
+        trigger: "r"
+        content: "return $1;"
+        desc: ""
+      }
+      {
+        name: "debugger;"
+        trigger: "deb"
+        content: "debugger;"
+        desc: ""
+      }
+      {
+        name: "arguments"
+        trigger: "arg"
+        content: "arguments"
+        desc: ""
+      }
+      {
+        name: "what"
+        trigger: "what"
+        content: '''
+          ,
+          what(ee){
+            console.log('what: ', ee)
+          }
+        '''
+        desc: ""
+      }
+      {
+        name: "for"
+        trigger: "for"
+        content: '''
+          for(let ${1:ii}=0; ${1:ii}<10; ${1:ii}++){
+            ${2}
+          }
+        '''
+        desc: ""
+      }
+      {
+        name: "fn"
+        trigger: "fn"
+        content: '''
+          function ${1}(${2}) {
+            ${3}
+          }
+        '''
+        desc: ""
+      }
+      {
+        name: "sto"
+        trigger: "sto"
+        content: '''
+          setTimeout(()=> {
+            ${1}
+          }, ${2:100})
+        '''
+        desc: ""
+      }
+      {
+        name: "siv"
+        trigger: "siv"
+        content: '''
+          setInterval(()=> {
+            ${1}
+          }, ${2:100})
+        '''
+        desc: ""
+      }
+      {
+        name: "ifd"
+        trigger: "ifd"
+        content: '''
+          if (process.env.NODE_ENV === 'development') {
+            ${1}
+          }
         '''
         desc: ""
       }
@@ -185,12 +304,6 @@
     ]
     snippetList: [
       {
-        name: "template(v-for"
-        trigger: "tvf"
-        content: "template(v-for=\"(vv$1, index$1) in $2\")"
-        desc: ""
-      }
-      {
         name: "v-for="
         trigger: "vf"
         content: "v-for=\"(vv$1, index$1) in $2\" :key=\"index$1\""
@@ -200,6 +313,18 @@
         name: "v-if="
         trigger: "vif"
         content: "v-if=\"$1\""
+        desc: ""
+      }
+      {
+        name: "template(v-for"
+        trigger: "tvf"
+        content: "template(v-for=\"(vv$1, index$1) in $2\")"
+        desc: ""
+      }
+      {
+        name: "template(v-if"
+        trigger: "tvif"
+        content: "template(v-if=\"$1\")"
         desc: ""
       }
     ]
