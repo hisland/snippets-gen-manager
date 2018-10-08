@@ -83,7 +83,7 @@
         trigger: "sto"
         content: '''
           setTimeout(()=> {
-          	${1}
+            ${1}
           }, ${2:100})
         '''
         desc: ""
@@ -93,8 +93,18 @@
         trigger: "siv"
         content: '''
           setInterval(()=> {
-          	${1}
+            ${1}
           }, ${2:100})
+        '''
+        desc: ""
+      }
+      {
+        name: "ifd"
+        trigger: "ifd"
+        content: '''
+          if (process.env.NODE_ENV === 'development') {
+            ${1}
+          }
         '''
         desc: ""
       }
