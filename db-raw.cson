@@ -1,8 +1,14 @@
 [
   {
     scopeList: [
-      ".source.js"
-      ".source.ts"
+      {
+        fileSuffix: ".source.js"
+        fileId: "javascript"
+      }
+      {
+        fileSuffix: ".source.ts"
+        fileId: "typescript"
+      }
     ]
     snippetList: [
       {
@@ -156,7 +162,10 @@
   }
   {
     scopeList: [
-      ".text.html"
+      {
+        fileSuffix: ".text.html"
+        fileId: "html"
+      }
     ]
     snippetList: [
       {
@@ -199,8 +208,14 @@
   }
   {
     scopeList: [
-      ".text.html"
-      ".source.pug"
+      {
+        fileSuffix: ".text.html"
+        fileId: "html"
+      }
+      {
+        fileSuffix: ".source.pug"
+        fileId: "jade"
+      }
     ]
     snippetList: [
       {
@@ -219,7 +234,10 @@
   }
   {
     scopeList: [
-      ".source.pug"
+      {
+        fileSuffix: ".source.pug"
+        fileId: "jade"
+      }
     ]
     snippetList: [
       {
@@ -250,7 +268,10 @@
   }
   {
     scopeList: [
-      ".source.css"
+      {
+        fileSuffix: ".source.css"
+        fileId: "css,scss"
+      }
     ]
     snippetList: [
       {

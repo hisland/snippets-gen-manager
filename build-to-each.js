@@ -3,18 +3,20 @@ const cson = require('cson')
 const { forEach, map } = require('lodash')
 
 // toAtom()
-// toVSCode()
+toVSCode()
 // fromAtom()
+// selfRebuild1()
+// selfRebuild2()
 
 function toAtom() {
   const list1 = cson.load('./db-raw.cson')
   // console.log(list1)
   const rs1 = {}
   list1.forEach(({ scopeList, snippetList }) => {
-    scopeList.forEach(scope => {
+    scopeList.forEach(({ fileSuffix, fileId }) => {
       snippetList.forEach(({ name, trigger, content, desc }) => {
-        rs1[scope] = rs1[scope] || {}
-        rs1[scope][name] = {
+        rs1[fileSuffix] = rs1[fileSuffix] || {}
+        rs1[fileSuffix][name] = {
           prefix: trigger,
           body: content,
         }
@@ -69,15 +71,13 @@ function toVSCode() {
   // console.log(list1)
   const rs1 = {}
   list1.forEach(({ scopeList, snippetList }) => {
-    scopeList.forEach(scope => {
-      snippetList.forEach(({ name, trigger, content, desc }) => {
-        rs1[name] = {
-          prefix: trigger,
-          scope: 'javascript,typescript',
-          body: [content],
-          description: desc,
-        }
-      })
+    snippetList.forEach(({ name, trigger, content, desc }) => {
+      rs1[name] = {
+        prefix: trigger,
+        scope: scopeList.map(vv => vv.fileId).join(','),
+        body: [content],
+        description: desc,
+      }
     })
   })
   const rs2 = JSON.stringify(rs1, null, '  ')
@@ -93,9 +93,58 @@ function toSublimeText3() {
     '/Users/hisland/Library/Application Support/Sublime Text 3/Packages/User'
 }
 
-
-selfRebuild()
-function selfRebuild() {
+function selfRebuild2() {
   const list1 = cson.load('./db-raw.cson')
-  console.log(list1)
+  const fileMap = {
+    '.source.js': 'javascript',
+    '.source.ts': 'typescript',
+    '.text.html': 'html',
+    '.source.pug': 'jade',
+    '.source.css': 'css,scss',
+  }
+  list1.forEach(({ scopeList, snippetList }, ii, oo) => {
+    oo[ii].scopeList = scopeList.map(({ fileSuffix, fileId }) => {
+      if (!fileMap[fileSuffix]) {
+        console.log('unknownType: ', fileSuffix)
+      }
+      return {
+        fileSuffix: fileSuffix,
+        fileId: fileMap[fileSuffix],
+      }
+    })
+  })
+  const rs2 = cson.createCSONString(list1, {
+    indent: '  ',
+  })
+  const out_path = './db-raw.cson'
+  fs.writeFileSync(out_path, rs2)
+  console.log('write to: ', out_path)
+}
+
+function selfRebuild1() {
+  const list1 = cson.load('./db-raw.cson')
+  const fileMap = {
+    '.source.js': 'javascript',
+    '.source.ts': 'typescript',
+    '.text.html': 'html',
+    '.source.pug': 'jade',
+    '.source.css': 'css',
+  }
+  list1.forEach(({ scopeList, snippetList }, ii, oo) => {
+    oo[ii].scopeList = scopeList.map(scope => {
+      if (!fileMap[scope]) {
+        console.log('unknownType: ', scope)
+      }
+      return {
+        fileSuffix: scope,
+        fileId: fileMap[scope],
+      }
+    })
+  })
+  const rs2 = cson.createCSONString(list1, {
+    indent: '  ',
+  })
+  const out_path = './db-raw.cson'
+  fs.writeFileSync(out_path, rs2)
+  console.log('write to: ', out_path)
 }
