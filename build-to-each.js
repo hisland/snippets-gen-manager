@@ -2,7 +2,8 @@ const fs = require('fs')
 const cson = require('cson')
 const { forEach, map } = require('lodash')
 
-toAtom()
+// toAtom()
+// toVSCode()
 // fromAtom()
 
 function toAtom() {
@@ -64,12 +65,37 @@ function fromAtom() {
 }
 
 function toVSCode() {
-  const cs_code_cfg_path =
-    '/Users/hisland/Library/Application Support/Code/User'
-  const p2 = '/Users/hisland/.vscode/extensions'
+  const list1 = cson.load('./db-raw.cson')
+  // console.log(list1)
+  const rs1 = {}
+  list1.forEach(({ scopeList, snippetList }) => {
+    scopeList.forEach(scope => {
+      snippetList.forEach(({ name, trigger, content, desc }) => {
+        rs1[name] = {
+          prefix: trigger,
+          scope: 'javascript,typescript',
+          body: [content],
+          description: desc,
+        }
+      })
+    })
+  })
+  const rs2 = JSON.stringify(rs1, null, '  ')
+  // fs.writeFileSync('./out-db-raw-to-vscode.cson', rs2)
+  const out_path =
+    '/Users/hisland/Library/Application Support/Code/User/snippets/hdl.code-snippets'
+  fs.writeFileSync(out_path, rs2)
+  console.log('write to: ', out_path)
 }
 
 function toSublimeText3() {
   const cs_code_cfg_path =
     '/Users/hisland/Library/Application Support/Sublime Text 3/Packages/User'
+}
+
+
+selfRebuild()
+function selfRebuild() {
+  const list1 = cson.load('./db-raw.cson')
+  console.log(list1)
 }
