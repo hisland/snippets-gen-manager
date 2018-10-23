@@ -2,8 +2,8 @@ const fs = require('fs')
 const cson = require('cson')
 const { forEach, map } = require('lodash')
 
-// toAtom()
-fromAtom()
+toAtom()
+// fromAtom()
 
 function toAtom() {
   const list1 = cson.load('./db-raw.cson')
