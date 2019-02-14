@@ -4,6 +4,7 @@ const { forEach, map } = require('lodash')
 
 // toAtom()
 toVSCode()
+// toSublimeText3()
 // fromAtom()
 // selfRebuild1()
 // selfRebuild2()
@@ -13,10 +14,10 @@ function toAtom() {
   // console.log(list1)
   const rs1 = {}
   list1.forEach(({ scopeList, snippetList }) => {
-    scopeList.forEach(({ fileSuffix, fileId }) => {
+    scopeList.forEach(({ atomScope, vscodeScope }) => {
       snippetList.forEach(({ name, trigger, content, desc }) => {
-        rs1[fileSuffix] = rs1[fileSuffix] || {}
-        rs1[fileSuffix][name] = {
+        rs1[atomScope] = rs1[atomScope] || {}
+        rs1[atomScope][name] = {
           prefix: trigger,
           body: content,
         }
@@ -74,7 +75,7 @@ function toVSCode() {
     snippetList.forEach(({ name, trigger, content, desc }) => {
       rs1[name] = {
         prefix: trigger,
-        scope: scopeList.map(vv => vv.fileId).join(','),
+        scope: scopeList.map(vv => vv.vscodeScope).join(','),
         body: [content],
         description: desc,
       }
@@ -103,13 +104,13 @@ function selfRebuild2() {
     '.source.css': 'css,scss',
   }
   list1.forEach(({ scopeList, snippetList }, ii, oo) => {
-    oo[ii].scopeList = scopeList.map(({ fileSuffix, fileId }) => {
-      if (!fileMap[fileSuffix]) {
-        console.log('unknownType: ', fileSuffix)
+    oo[ii].scopeList = scopeList.map(({ atomScope, vscodeScope }) => {
+      if (!fileMap[atomScope]) {
+        console.log('unknownType: ', atomScope)
       }
       return {
-        fileSuffix: fileSuffix,
-        fileId: fileMap[fileSuffix],
+        atomScope: atomScope,
+        vscodeScope: fileMap[atomScope],
       }
     })
   })
@@ -136,8 +137,8 @@ function selfRebuild1() {
         console.log('unknownType: ', scope)
       }
       return {
-        fileSuffix: scope,
-        fileId: fileMap[scope],
+        atomScope: scope,
+        vscodeScope: fileMap[scope],
       }
     })
   })
