@@ -188,6 +188,16 @@
         '''
         desc: ""
       }
+      {
+        name: "promise"
+        trigger: "promise"
+        content: '''
+          new Promise(function(resolve, reject) {
+            ${1}
+          })
+        '''
+        desc: ""
+      }
     ]
   }
   {
@@ -250,6 +260,10 @@
         atomScope: ".html.vue-html"
         vscodeScope: "vue-html"
       }
+      {
+        atomScope: ".html.vue-pug"
+        vscodeScope: "vue-pug"
+      }
     ]
     snippetList: [
       {
@@ -271,6 +285,10 @@
       {
         atomScope: ".source.pug"
         vscodeScope: "jade"
+      }
+      {
+        atomScope: ".html.vue-pug"
+        vscodeScope: "vue-pug"
       }
     ]
     snippetList: [
@@ -302,6 +320,10 @@
   }
   {
     scopeList: [
+      {
+        atomScope: ".text.html"
+        vscodeScope: "html"
+      }
       {
         atomScope: ".html.vue-html"
         vscodeScope: "vue-html"
