@@ -147,6 +147,26 @@
         desc: ""
       }
       {
+        name: "fn-run"
+        trigger: "fr"
+        content: '''
+          ;(function() {
+            ${1}
+          })();
+        '''
+        desc: ""
+      }
+      {
+        name: "fn-run-async"
+        trigger: "fra"
+        content: '''
+          ;(async function() {
+            ${1}
+          })();
+        '''
+        desc: ""
+      }
+      {
         name: "sto"
         trigger: "sto"
         content: '''
