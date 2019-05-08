@@ -341,6 +341,41 @@
   {
     scopeList: [
       {
+        atomScope: ".html.vue-pug"
+        vscodeScope: "vue"
+      }
+    ]
+    snippetList: [
+      {
+        name: "basic-vue-code"
+        trigger: "basic-vue-code"
+        content: '''
+        <template>
+          <div class="wrap"></div>
+        </template>
+        <script>
+        export default {
+          components: {},
+          data() {
+            return {};
+          },
+          watch: {},
+          props: {},
+          computed: {},
+          methods: {},
+          async mounted() {}
+        };
+        </script>
+        <style scoped lang="scss">
+        </style>
+        '''
+        desc: ""
+      }
+    ]
+  }
+  {
+    scopeList: [
+      {
         atomScope: ".text.html"
         vscodeScope: "html"
       }
@@ -355,7 +390,7 @@
         trigger: "tvf"
         content: '''
         <template v-for="(vv$1, index$1) in $2">
-        <template>
+        </template>
         '''
         desc: ""
       }
@@ -364,7 +399,7 @@
         trigger: "tvif"
         content: '''
         <template v-if="$1">
-        <template>
+        </template>
         '''
         desc: ""
       }
@@ -374,7 +409,7 @@
         content: '''
         <template v-else>
           $1
-        <template>
+        </template>
         '''
         desc: ""
       }
