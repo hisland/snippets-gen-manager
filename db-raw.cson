@@ -88,8 +88,28 @@
         name: "for"
         trigger: "for"
         content: '''
-          for(let ${1:ii}=0; ${1:ii}<10; ${1:ii}++){
-            ${2}
+          for(let ${1:ii}=0; ${1:ii}<${2:10}; ${1:ii}++){
+            ${3}
+          }
+        '''
+        desc: ""
+      }
+      {
+        name: "for-length"
+        trigger: "for-length"
+        content: '''
+          for(let ${1:ii}=0, len=${2}.length; ${1:ii}<len; ${1:ii}++){
+            ${3}
+          }
+        '''
+        desc: ""
+      }
+      {
+        name: "for-right"
+        trigger: "for-right"
+        content: '''
+          for(let ${1:ii}=${2}.length-1; ${1:ii}>=0; ${1:ii}--){
+            ${3}
           }
         '''
         desc: ""
@@ -215,6 +235,18 @@
           new Promise(function(resolve, reject) {
             ${1}
           })
+        '''
+        desc: ""
+      }
+      {
+        name: "try"
+        trigger: "try"
+        content: '''
+          try {
+            ${1}
+          } catch (error) {
+            console.log(error)
+          }
         '''
         desc: ""
       }
