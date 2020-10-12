@@ -32,6 +32,12 @@
         desc: ""
       }
       {
+        name: "console.logVar"
+        trigger: "clv"
+        content: "console.log('$1: ', $1)"
+        desc: ""
+      }
+      {
         name: "console.logJSON"
         trigger: "clj"
         content: "console.log(JSON.stringify($1))"
@@ -239,6 +245,16 @@
         desc: ""
       }
       {
+        name: "promise-sleep"
+        trigger: "promise-sleep"
+        content: '''
+          await new Promise(function(resolve, reject) {
+            setTimeout(resolve, ${1:3000})
+          })
+        '''
+        desc: ""
+      }
+      {
         name: "try"
         trigger: "try"
         content: '''
@@ -247,6 +263,36 @@
           } catch (error) {
             console.log(error)
           }
+        '''
+        desc: ""
+      }
+      {
+        name: "rf"
+        trigger: "rf"
+        content: '''
+          <React.Fragment>
+            ${1}
+          </React.Fragment>
+        '''
+        desc: ""
+      }
+      {
+        name: "rcp"
+        trigger: "rcp"
+        content: '''
+          <${1}.Provider value={${2}}>
+            ${3}
+          </${1}.Provider>
+        '''
+        desc: ""
+      }
+      {
+        name: "rcc"
+        trigger: "rcc"
+        content: '''
+          <${1}.Consumer>
+            ${2}
+          </${1}.Consumer>
         '''
         desc: ""
       }
