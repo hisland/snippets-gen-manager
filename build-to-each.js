@@ -68,6 +68,7 @@ function fromAtom() {
 }
 
 function toVSCode() {
+  console.log('write to VSCode')
   const list1 = cson.load('./db-raw.cson')
   // console.log(list1)
   const rs1 = {}
@@ -75,7 +76,7 @@ function toVSCode() {
     snippetList.forEach(({ name, trigger, content, desc }) => {
       rs1[name] = {
         prefix: trigger,
-        scope: scopeList.map(vv => vv.vscodeScope).join(','),
+        scope: scopeList.map((vv) => vv.vscodeScope).join(','),
         body: [content],
         description: desc,
       }
@@ -132,7 +133,7 @@ function selfRebuild1() {
     '.source.css': 'css',
   }
   list1.forEach(({ scopeList, snippetList }, ii, oo) => {
-    oo[ii].scopeList = scopeList.map(scope => {
+    oo[ii].scopeList = scopeList.map((scope) => {
       if (!fileMap[scope]) {
         console.log('unknownType: ', scope)
       }

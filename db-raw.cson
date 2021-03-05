@@ -238,7 +238,7 @@
         name: "promise"
         trigger: "promise"
         content: '''
-          new Promise(function(resolve, reject) {
+          new Promise((resolve, reject) => {
             ${1}
           })
         '''
@@ -248,7 +248,7 @@
         name: "promise-sleep"
         trigger: "promise-sleep"
         content: '''
-          await new Promise(function(resolve, reject) {
+          await new Promise((resolve, reject) => {
             setTimeout(resolve, ${1:3000})
           })
         '''
@@ -425,8 +425,8 @@
     ]
     snippetList: [
       {
-        name: "basic-vue-code"
-        trigger: "basic-vue-code"
+        name: "base-vue2"
+        trigger: "base-vue2"
         content: '''
         <template>
           <div class="wrap"></div>
@@ -443,6 +443,31 @@
           methods: {},
           async mounted() {}
         };
+        </script>
+        <style scoped lang="scss">
+        </style>
+        '''
+        desc: ""
+      }
+      {
+        name: "base-vue3"
+        trigger: "base-vue3"
+        content: '''
+        <template>
+          <div class="wrap">
+            <div>helo</div>
+          </div>
+        </template>
+        <script>
+        import { ref, reactive, watch } from 'vue'
+        import { onMounted } from 'vue'
+        export default {
+          props: {},
+          emits: {},
+          setup(props, { attrs, slots, emit }) {
+            return {}
+          },
+        }
         </script>
         <style scoped lang="scss">
         </style>
