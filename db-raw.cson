@@ -304,6 +304,9 @@
         atomScope: ".text.html"
         vscodeScope: "html"
       }
+      {
+        vscodeScope: "vue"
+      }
     ]
     snippetList: [
       {
@@ -361,6 +364,9 @@
       {
         atomScope: ".html.vue-pug"
         vscodeScope: "vue-pug"
+      }
+      {
+        vscodeScope: "vue"
       }
     ]
     snippetList: [
@@ -429,7 +435,7 @@
         trigger: "base-vue2"
         content: '''
         <template>
-          <div class="wrap"></div>
+          <div class="wrap">$1</div>
         </template>
         <script>
         export default {
@@ -455,7 +461,7 @@
         content: '''
         <template>
           <div class="wrap">
-            <div>helo</div>
+            $1
           </div>
         </template>
         <script>
@@ -474,6 +480,24 @@
         '''
         desc: ""
       }
+      {
+        name: "base-volar-setup"
+        trigger: "base-volar-setup"
+        content: '''
+        <script setup>
+          $1
+        </script>
+        <template>
+          <div>
+
+          </div>
+        </template>
+        <style scoped lang="scss">
+        </style>
+
+        '''
+        desc: ""
+      }
     ]
   }
   {
@@ -485,6 +509,9 @@
       {
         atomScope: ".html.vue-html"
         vscodeScope: "vue-html"
+      }
+      {
+        vscodeScope: "vue"
       }
     ]
     snippetList: [
