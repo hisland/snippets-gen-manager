@@ -9,6 +9,9 @@
         atomScope: ".source.ts"
         vscodeScope: "typescript"
       }
+      {
+        vscodeScope: "javascriptreact"
+      }
     ]
     snippetList: [
       {
@@ -262,6 +265,20 @@
             ${1}
           } catch (error) {
             console.log(error)
+          }
+        '''
+        desc: ""
+      }
+      {
+        name: "tcf"
+        trigger: "tcf"
+        content: '''
+          try {
+            const { data } = await ${1}
+          } catch (error) {
+            console.log('error: ', error);
+          } finally {
+            ${2}
           }
         '''
         desc: ""
@@ -549,7 +566,7 @@
     scopeList: [
       {
         atomScope: ".source.css"
-        vscodeScope: "css,scss"
+        vscodeScope: "css,scss,less"
       }
     ]
     snippetList: [
