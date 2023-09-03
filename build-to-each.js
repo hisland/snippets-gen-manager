@@ -85,7 +85,8 @@ function toVSCode() {
   const rs2 = JSON.stringify(rs1, null, '  ')
   // fs.writeFileSync('./out-db-raw-to-vscode.cson', rs2)
   const out_path =
-    '/Users/hisland/Library/Application Support/Code/User/snippets/hdl.code-snippets'
+    '/mnt/c/Users/hisla/AppData/Roaming/Code/User/snippets/hdl.code-snippets'
+    // '/Users/hisland/Library/Application Support/Code/User/snippets/hdl.code-snippets'
   fs.writeFileSync(out_path, rs2)
   console.log('write to: ', out_path)
 }
