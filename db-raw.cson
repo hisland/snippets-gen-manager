@@ -47,6 +47,12 @@
         desc: ""
       }
       {
+        name: "console.logJSONFormat"
+        trigger: "cljf"
+        content: "console.log(JSON.stringify($1, null, ' '))"
+        desc: ""
+      }
+      {
         name: "alert($1)"
         trigger: "al"
         content: "alert($1)"
